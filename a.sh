@@ -14,10 +14,11 @@ cd build
 sudo make
 sudo make install
 cd ~
-sudo rm -rf zzz/
+sudo rm -rf glibc
 
 wget https://www.factorio.com/get-download/stable/headless/linux64
 tar xvf linux64
+rm linux64
 
 wget https://github.com/TundraFizz/Factorio-Server/raw/master/all-mods.zip
 unzip -d all-mods all-mods.zip
@@ -25,6 +26,7 @@ unzip -d all-mods all-mods.zip
 mkdir factorio/mods
 mv all-mods/* factorio/mods
 rm all-mods -r
+rm all-mods.zip
 
 cd factorio
 
