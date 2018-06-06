@@ -9,12 +9,12 @@ echo if($version -eq 1^){
 
   echo echo "Not supported, get a better computer"
 
-echo }elseif($version -eq 2^){
+echo }elseif($version -ge 2^){
 
   echo echo "Running low-tech setup"
 
   echo $source = "https://github.com/TundraFizz/Factorio-Server/raw/master/all-mods.zip"
-  echo $output = "C:\Users\leif.coleman\Desktop\all-mods.zip"
+  echo $output = $args[0] + "\all-mods.zip"
 
   echo echo "Downloading mods"
   echo bitsadmin.exe /transfer "JobName" $source $output
@@ -54,7 +54,7 @@ echo }
 
 ) > "temp.ps1"
 
-Powershell.exe -executionpolicy remotesigned -File temp.ps1 %cd%
+Powershell.exe -executionpolicy remotesigned -File temp.ps1 "%cd%"
 del temp.ps1
 del all-mods.zip
 pause
